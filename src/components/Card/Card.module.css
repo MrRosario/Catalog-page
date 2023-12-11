@@ -1,0 +1,63 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 262px;
+    row-gap: 12px;   
+    position: relative;
+    cursor: pointer;
+}
+.cardImageWrapper {
+    position: relative;
+}
+.card button {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    z-index: 2;
+}
+.card:hover button {
+    display: block;
+}
+.card img {
+    height: 350px;
+    width: 100%;
+    object-fit: contain;
+}
+.cardContent {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    row-gap: 4px;
+    background-color: var(--white);
+}
+.title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--racing-green);
+}
+.priceWrapper {
+    display: flex;
+    flex-direction: row;
+    column-gap: 12px;
+}
+.oldPrice,
+.price {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--black);
+}
+.oldPrice {
+    color: var(--smoked-grey);
+    text-decoration: line-through;
+}
+.tagsWrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+    position: absolute;
+    top: 16px;
+    left: 16px;
+}
+.rating {
+    color: var(--charcoal);
+}

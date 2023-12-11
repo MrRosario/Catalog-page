@@ -1,0 +1,10 @@
+.cartCounter {
+    display: flex;
+    flex-direction: row;
+    border-radius: 4px;
+    border: 1px solid var(--smoked-grey);
+    column-gap: 2px;
+    width: 80px;
+    justify-content: space-between;
+    padding: 5px 10px;
+}

@@ -1,4 +1,10 @@
-import React, { createContext, useReducer, useContext, ReactNode } from "react";
+import React, {
+  createContext,
+  useReducer,
+  useContext,
+  ReactNode,
+  useEffect,
+} from "react";
 import { ICart } from "@/types/global";
 
 interface CartItem extends ICart {
@@ -83,10 +89,19 @@ const cartReducer = (state: CartState, action: CartAction): CartState => {
   }
 };
 
-export const CartProvider: React.FC<{ children: ReactNode }> = ({
-  children,
-}) => {
-  const [state, dispatch] = useReducer(cartReducer, { cartItems: [] });
+export const CartProvider = ({ children }: { children: ReactNode }) => {
+  const initialState: CartState = {
+    cartItems:
+      typeof window !== "undefined"
+        ? JSON.parse(sessionStorage.getItem("cartItems") || "[]")
+        : [],
+  };
+
+  const [state, dispatch] = useReducer(cartReducer, initialState);
+
+  useEffect(() => {
+    sessionStorage.setItem("cartItems", JSON.stringify(state.cartItems));
+  }, [state.cartItems]);
 
   const addToCart = (product: ICart) => {
     dispatch({ type: "ADD_TO_CART", payload: product });

@@ -82,3 +82,13 @@
     font-weight: 500;
     font-size: 20px;
 }
+@media (max-width: 600px) {
+    .cartWrapper {
+        width: 100%;
+        height: 100vh;
+        border-radius: unset;
+        max-width: unset;
+        border: unset;
+        border-bottom: 1px solid var(--ghost);
+    }
+}

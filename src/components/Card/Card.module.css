@@ -9,11 +9,29 @@
 .cardImageWrapper {
     position: relative;
 }
-.card button {
+.cardDescription {
     display: none;
     position: absolute;
+    bottom: 40px;
+    z-index: 1;
+    color: var(--black);
+    font-size: 14px;
+    font-weight: 500;
+    background-color: var(--white);
+    padding: 3px 16px;
+    overflow: hidden;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    opacity: 0.8;
+}
+.card button {
+    display: none;
+    z-index: 1;
+    position: absolute;
     bottom: 0;
-    z-index: 2;
+}
+.card:hover .cardDescription {
+    display: -webkit-box;
 }
 .card:hover button {
     display: block;

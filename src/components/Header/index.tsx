@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { routePaths } from "@/utils/constants";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import ShoppingCart from "@/components/ShoppingCart";
 import styles from "./Header.module.css";
 import Cart from "../Cart";
+import HamburgerMenu from "../HamburgerMenu";
+import MobileNavBar from "../MobileNavBar";
 
 const Header = () => {
-  const [isCartOpen, setIsCartOpen] = React.useState(false);
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const router = useRouter();
   const pathName = router.pathname;
 
@@ -19,7 +22,7 @@ const Header = () => {
     <header className={styles.header}>
       <div className={styles.headerInnerWrapper}>
         <div>Logo</div>
-        <nav>
+        <nav className={styles.headerNavBar}>
           <ul>
             {routePaths.map((routePath, index) => (
               <li
@@ -33,6 +36,11 @@ const Header = () => {
             ))}
           </ul>
         </nav>
+        {isMenuOpen && <MobileNavBar pathName={pathName} />}
+        <HamburgerMenu
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          isOpen={isMenuOpen}
+        />
         <ShoppingCart toggleCart={handleCart} />
         {isCartOpen && <Cart />}
       </div>

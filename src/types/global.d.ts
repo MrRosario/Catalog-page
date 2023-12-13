@@ -6,11 +6,12 @@ export interface IRating {
 export interface IProduct {
   id: number;
   title: string;
+  description: string;
   price: number;
   description: string;
-  category: string;
   image: string;
   rating: IRating;
+  oldPrice?: number;
 }
 
 export type routePath = {

@@ -3,7 +3,7 @@
     width: 100%;
     color: var(--color-primary);
     background-image: url('../../assets/images/newsletterBG.png');
-    background-color: var(--dawn-pink);
+    background-color: var(--catskill-white);
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;
@@ -74,6 +74,8 @@
     font-weight: 400;
     color: var(--black);
 }
-.newsletterContent {
-
+@media  (max-width: 767px) {
+    .newsletter {
+        background-image: none;
+    }
 }

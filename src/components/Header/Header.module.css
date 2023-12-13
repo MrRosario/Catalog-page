@@ -32,3 +32,35 @@
     font-size: 14px;
     font-weight: 400;
 }
+
+@media (max-width: 600px) {
+    .headerNavBar {
+        display: none;
+    }
+    .mobileNavBar {
+        display: block;
+        position: absolute;
+        background-color: var(--white);
+        top: 60px;
+        left: 0;
+        width: 100%;
+        border-bottom: 1px solid var(--white-smoked);
+        padding: 16px;
+        height: 100vh;
+    }
+    .headerInnerWrapper {
+        position: unset;
+    }
+    .mobileNavBar ul {
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+        padding: 20px 0;
+    }
+}
+
+@media (max-width: 1120px) {
+    .header {
+        padding: 0 16px;
+    }
+}

@@ -1,0 +1,9 @@
+.hamburgerMenuWrapper {
+    display: none;
+}
+
+@media (max-width: 600px) {
+    .hamburgerMenuWrapper {
+        display: block;
+    }
+}

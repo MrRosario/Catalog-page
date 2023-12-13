@@ -11,6 +11,7 @@
   --black-bean: #141718;
   --white-smoked: #F3F5F7;
   --ghost: #CBCBCB;
+  --catskill-white: #F0F4F8;
 
   --font-family-INTER: 'Inter', sans-serif;
 
@@ -47,8 +48,12 @@
   button {
     all: unset;
     cursor: pointer;
-    transition: all .2s ease-in-out;
   }
+
+  img, button {
+    transition: transform 0.4s ease-in-out;
+  }
+  img:hover,
   button:hover {
     transform: scale(1.05);
   }

@@ -1,18 +1,20 @@
+"use client";
+
 import React from "react";
-import useSWR from "swr";
 import Banner from "@/components/Banner";
 import Card from "@/components/Card";
-import { fetcher } from "@/utils/helpers";
 import styles from "@/styles/Home.module.css";
 import { IProduct } from "@/types/global";
+import { useFetch } from "@/hook/useFetch";
 
 const LIMIT = 12;
+
 export default function Home() {
   const {
     data: productList,
     error,
-    isLoading,
-  } = useSWR(`https://fakestoreapi.com/products?limit=${LIMIT}`, fetcher);
+    loading,
+  } = useFetch(`https://fakestoreapi.com/products?limit=${LIMIT}`);
 
   const hasProducts = productList && productList.length > 0;
 
@@ -25,10 +27,10 @@ export default function Home() {
         </div>
         <div className={styles.productsWrapper}>
           {error && <h2>Erro ao carregar os produtos</h2>}
-          {isLoading && <h2>Carregando...</h2>}
+          {loading && <h2>Carregando...</h2>}
           {hasProducts &&
             productList.map((product: IProduct) => {
-              const { id, price, title, image, rating } = product;
+              const { id, price, title, image, rating, description } = product;
               return (
                 <Card
                   key={id}
@@ -37,6 +39,7 @@ export default function Home() {
                   price={price}
                   image={image}
                   rating={rating}
+                  description={description}
                 />
               );
             })}

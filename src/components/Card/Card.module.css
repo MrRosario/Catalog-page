@@ -5,6 +5,7 @@
     row-gap: 12px;   
     position: relative;
     cursor: pointer;
+    max-width: 262px;
 }
 .cardImageWrapper {
     position: relative;
@@ -23,6 +24,7 @@
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     opacity: 0.8;
+    border-radius: var(--border-radius);
 }
 .card button {
     display: none;
@@ -40,7 +42,12 @@
     height: 350px;
     width: 100%;
     object-fit: contain;
+    transition: transform 0.4s ease-in-out;
 }
+.card img:hover {
+    transform: scale(1.1);
+}
+
 .cardContent {
     display: flex;
     flex-direction: column;
@@ -68,14 +75,12 @@
     color: var(--smoked-grey);
     text-decoration: line-through;
 }
-.tagsWrapper {
-    display: flex;
-    flex-direction: column;
-    row-gap: 8px;
-    position: absolute;
-    top: 16px;
-    left: 16px;
-}
 .rating {
     color: var(--charcoal);
+}
+
+@media (max-width: 1120px) {
+    .card {
+        max-width: 100%;
+    }
 }

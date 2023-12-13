@@ -1,19 +1,26 @@
-import { IProduct } from "@/types/global";
 import { useEffect, useState } from "react";
+import { fetcher } from "@/utils/helpers";
 
 export const useFetch = (url: string) => {
-  const [data, setData] = useState<IProduct[]>([]);
+  const [data, setData] = useState<any>([]);
   const [error, setError] = useState<any>(null);
   const [loading, setLoading] = useState<boolean>(false);
 
-  useEffect(() => {
+  const fetchData = async () => {
     setLoading(true);
-    fetch(url)
-      .then((response) => response.json())
-      .then(setData)
-      .catch(setError)
-      .finally(() => setLoading(false));
-  }, [url]);
+    try {
+      const response = await fetcher(url);
+      setData(response);
+    } catch (error) {
+      setError(error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
-  return { data, error, loading };
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  return { data, error, loading, fetchData };
 };

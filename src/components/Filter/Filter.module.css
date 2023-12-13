@@ -1,0 +1,19 @@
+.filterWrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+}
+.filterLabel {
+    font-size: 16;
+    font-weight: 600;
+    color: var(--smoked-grey);
+}
+.filterSelectInput {
+    border: 1px solid var(--smoked-grey);
+    border-radius: 8px;
+    width: 262px;
+    padding: 14px 16px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--black-bean);
+}

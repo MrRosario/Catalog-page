@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "./Card.module.css";
-import Tag from "@/components/Tag";
 import { Rating } from "react-simple-star-rating";
 import { IProduct } from "@/types/global";
 import Button from "../Button";
@@ -29,10 +28,6 @@ const Card = ({
           <span>{description}</span>
         </div>
         <Button label="Add to cart" handleClick={handleAddToCart} />
-        <div className={styles.tagsWrapper}>
-          <Tag label="New" themeColor="white" />
-          <Tag label="-50%" themeColor="green" />
-        </div>
         <img loading="lazy" width="100%" src={image} alt={title} />
       </div>
       <div className={styles.cardContent}>

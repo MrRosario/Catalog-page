@@ -20,6 +20,3 @@ export const formatCurrency = (amount: number): string => {
     return amount.toString();
   }
 };
-
-export const percentage = (percent: number, price: number) =>
-  ((percent / 100) * price).toFixed(2);

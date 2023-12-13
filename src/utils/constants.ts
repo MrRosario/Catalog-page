@@ -1,9 +1,5 @@
 import { routePath } from "@/types/global";
 
-export enum storage_keys {
-  cart = "@StoreCart",
-}
-
 export const routePaths: routePath[] = [
   {
     name: "Home",
